@@ -7,6 +7,7 @@ $ export GITHUB_TOKEN="31232652407123470789"
 ```
 
 <!-- toc -->
+
 <!-- tocstop -->
 <!-- install -->
 <!-- usage -->
@@ -42,7 +43,8 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
 
 EXAMPLE
-  $ sfdx git:issues:create --repo my-repo --owner dcarroll
+  $ sfdx git:issues:create --repo my-repo --owner dcarroll --title 'Title of the issue' --body 'This is the contents 
+  that explains the details of the issue'
 ```
 
 _See code: [src/commands/git/issues/create.ts](https://github.com/dcarroll/githubtool/blob/v0.0.0/src/commands/git/issues/create.ts)_

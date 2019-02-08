@@ -14,7 +14,7 @@ export default class Create extends SfdxCommand {
   public static description = messages.getMessage('commandDescription');
 
   public static examples = [
-  `$ sfdx git:issues:create --repo my-repo --owner dcarroll
+  `$ sfdx git:issues:create --repo my-repo --owner dcarroll --title 'Title of the issue' --body 'This is the contents that explains the details of the issue'
   `
   ];
 
