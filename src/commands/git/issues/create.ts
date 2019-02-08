@@ -23,7 +23,9 @@ export default class Create extends SfdxCommand {
   protected static flagsConfig = {
     // flag with a value (-n, --name=VALUE)
     repo: flags.string({required: true, char: 'r', description: 'repo to add issue to'}),
-    owner: flags.string({required: true, char: 'o', description: 'owner of the repo'})
+    owner: flags.string({required: true, char: 'o', description: 'owner of the repo'}),
+    title: flags.string({ required: true, char: 't', description: 'the title for the issue to be created'}),
+    body: flags.string({ required: true, char: 'b', description: 'long form of the actual issue contents'})
   };
 
   // Comment this out if your command does not require an org username

@@ -1,19 +1,12 @@
 githubtool
 ==========
 
-
-
-[![Version](https://img.shields.io/npm/v/githubtool.svg)](https://npmjs.org/package/githubtool)
-[![CircleCI](https://circleci.com/gh/dcarroll/githubtool/tree/master.svg?style=shield)](https://circleci.com/gh/dcarroll/githubtool/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/dcarroll/githubtool?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/githubtool/branch/master)
-[![Codecov](https://codecov.io/gh/dcarroll/githubtool/branch/master/graph/badge.svg)](https://codecov.io/gh/dcarroll/githubtool)
-[![Greenkeeper](https://badges.greenkeeper.io/dcarroll/githubtool.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/dcarroll/githubtool/badge.svg)](https://snyk.io/test/github/dcarroll/githubtool)
-[![Downloads/week](https://img.shields.io/npm/dw/githubtool.svg)](https://npmjs.org/package/githubtool)
-[![License](https://img.shields.io/npm/l/githubtool.svg)](https://github.com/dcarroll/githubtool/blob/master/package.json)
+## Note: you will need to set an environment variable named GITHUB_TOKEN that contains your personal github token.
+```sh-session
+$ export GITHUB_TOKEN="31232652407123470789"
+```
 
 <!-- toc -->
-* [Debugging your plugin](#debugging-your-plugin)
 <!-- tocstop -->
 <!-- install -->
 <!-- usage -->
@@ -34,15 +27,17 @@ USAGE
 
 ## `githubtool git:issues:create`
 
-print a greeting and your org IDs
+Add an issue to a github repo with title and body
 
 ```
 USAGE
   $ githubtool git:issues:create
 
 OPTIONS
+  -b, --body=body                                 (required) long form of the actual issue contents
   -o, --owner=owner                               (required) owner of the repo
   -r, --repo=repo                                 (required) repo to add issue to
+  -t, --title=title                               (required) the title for the issue to be created
   --json                                          format output as json
   --loglevel=(trace|debug|info|warn|error|fatal)  logging level for this command invocation
 
@@ -52,27 +47,3 @@ EXAMPLE
 
 _See code: [src/commands/git/issues/create.ts](https://github.com/dcarroll/githubtool/blob/v0.0.0/src/commands/git/issues/create.ts)_
 <!-- commandsstop -->
-<!-- debugging-your-plugin -->
-# Debugging your plugin
-We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
-
-To debug the `hello:org` command: 
-1. Start the inspector
-  
-If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch: 
-```sh-session
-$ sfdx hello:org -u myOrg@example.com --dev-suspend
-```
-  
-Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
-```sh-session
-$ NODE_OPTIONS=--inspect-brk bin/run hello:org -u myOrg@example.com
-```
-
-2. Set some breakpoints in your command code
-3. Click on the Debug icon in the Activity Bar on the side of VS Code to open up the Debug view.
-4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
-5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program. 
-6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-<br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
-Congrats, you are debugging!
